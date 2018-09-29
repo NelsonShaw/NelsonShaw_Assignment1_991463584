@@ -9,7 +9,6 @@ namespace NelsonShaw_Assignment1_991463584.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         public ViewResult Index()
         {
             int time = DateTime.Now.Hour;
