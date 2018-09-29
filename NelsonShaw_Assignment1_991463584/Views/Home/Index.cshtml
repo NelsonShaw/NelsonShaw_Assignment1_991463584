@@ -1,4 +1,4 @@
-﻿
+﻿@model NelsonShaw_Assignment1_991463584.Models.RestaurantResponse
 @{
     Layout = null;
 }
@@ -26,8 +26,29 @@
     <div class="text-center">
         <h2>We're going to have an exciting party!</h2>
         <h3>And you are invited</h3>
-        <div class="btn btn-success">
-            @Html.ActionLink("RSVP Now", "RsvpForm")
+        <div>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    <label>What restaurant are you going to?</label>
+                    @Html.DropDownListFor(x => x.RestaurantName, new[] {
+                                            new SelectListItem() {Text = "Harveys",
+                                                Value = "Harveys"},
+                                            new SelectListItem() {Text = "Montanas",
+                                                Value = "Montanas"},
+                                            new SelectListItem() {Text = "The Keg",
+                                                Value = "The Keg"},
+                                            new SelectListItem() {Text = "East Side Marios",
+                                                Value = "East Side Marios"},
+                                            new SelectListItem() {Text = "Swiss Chalet",
+                                                Value = "Swiss Chalet"}
+                                        }, "Choose a restaurant", new { @class = "form-control" })
+                </div>
+                <div class="text-center">
+                    <input class="btn btn-success" type="submit" value="Go" />
+                </div>
+            }
         </div>
     </div>
 </body>
