@@ -7,10 +7,11 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <title>Index</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <title>Home</title>
     <style>
         .btn a {
             color: white;
@@ -18,20 +19,25 @@
         }
 
         body {
-            background-color: #F1F1F1;
+            background-color: lightgreen;
+        }
+
+        h1, h3 {
+            color: green;
         }
     </style>
 </head>
 <body>
-    <div class="text-center">
-        <h2>We're going to have an exciting party!</h2>
-        <h3>And you are invited</h3>
-        <div>
+    <div class="container text-center">
+        <h1>Restaurant Party Reservations</h1>
+        <h3>Your invited! Come and bring some friends!</h3>
+    </div>
+        <div class="container">
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary()
                 <div class="form-group">
-                    <label>What restaurant are you going to?</label>
+                    <label>Restaurant:</label>
                     @Html.DropDownListFor(x => x.RestaurantName, new[] {
                                             new SelectListItem() {Text = "Harveys",
                                                 Value = "Harveys"},
@@ -50,6 +56,5 @@
                 </div>
             }
         </div>
-    </div>
 </body>
 </html>

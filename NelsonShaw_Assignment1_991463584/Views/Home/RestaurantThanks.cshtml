@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <title>RestaurantThanks</title>
+    <title>Thanks</title>
     <style>
         .btn a {
             color: white;
@@ -19,14 +19,26 @@
         }
 
         body {
-            background-color: #F1F1F1;
+            background-color: lightsalmon;
         }
     </style>
 </head>
 <body>
-    <h3>Thanks for choosing @Model.RestaurantName</h3>
-    <div class="btn btn-success">
-        @Html.ActionLink("RSVP Now", "RsvpForm")
+    <div class="text-center">
+        <h2>Thanks for choosing @Model.RestaurantName</h2>
+        <h3>Now we simply need a bit more information from you:</h3>
+        <div class="container">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-warning">Your name</li>
+                <li class="list-group-item list-group-item-warning">Your email</li>
+                <li class="list-group-item list-group-item-warning">Your phone number</li>
+                <li class="list-group-item list-group-item-warning">How many of your friends you are bringing</li>
+                <li class="list-group-item list-group-item-warning">If you are coming or not</li>
+            </ul>
+        </div>
+        <div class="btn btn-warning">
+            @Html.ActionLink("RSVP Now", "RsvpForm")
+        </div>
     </div>
 </body>
 </html>

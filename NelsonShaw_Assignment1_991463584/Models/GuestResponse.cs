@@ -19,6 +19,11 @@ namespace NelsonShaw_Assignment1_991463584.Models
         [Required(ErrorMessage = "Please enter your phone number")]
         public string Phone { get; set; }
 
+        [Required(ErrorMessage = "Please enter a number")]
+        [RegularExpression(@"^[0-9]*$", 
+            ErrorMessage = "Please enter a number")]
+        public string NumberOfFriends { get; set; }
+
         [Required(ErrorMessage = "Please specify whether you'll attend")]
         public bool? WillAttend { get; set; }
     }

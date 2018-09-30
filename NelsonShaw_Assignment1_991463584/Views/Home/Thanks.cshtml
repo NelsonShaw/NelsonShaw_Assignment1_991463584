@@ -14,7 +14,10 @@
     <title>Thanks</title>
     <style>
         body {
-            background-color: #F1F1F1;
+            background-color: lightgreen;
+        }
+        h1, .lead {
+            color: green;
         }
     </style>
 </head>
@@ -24,7 +27,7 @@
         <div class="lead">
             @if (Model.WillAttend == true)
             {
-                @:It's great that you're coming. The drinks are already in the fridge!
+                @:Your restaurant reservation is made. We will gladly deliver your meal once you make it.
             }
             else
             {
