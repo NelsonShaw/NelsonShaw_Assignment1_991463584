@@ -1,5 +1,5 @@
 ﻿<!--Import the restaurant response model for the view.-->
-@model NelsonShaw_Assignment1_991463584.Models.RestaurantResponse
+@model Tuple<NelsonShaw_Assignment1_991463584.Models.RestaurantResponse, string>
 
 <!--Set a default layout.-->
 @{
@@ -43,7 +43,8 @@
         <!--Represents a container to center the text.-->
         <div class="text-center">
             <!--Access the restaurant name.-->
-            <h2>Thanks for choosing @Model.Name</h2>
+            <h2>Thanks for choosing @Model.Item1.Name</h2>
+            <p>Your request: @Model.Item2</p>
             <h3>Now we simply need a bit more information from you:</h3>
 
             <!--Represents a container for a list.-->

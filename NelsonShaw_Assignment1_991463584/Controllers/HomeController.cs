@@ -36,15 +36,22 @@ namespace NelsonShaw_Assignment1_991463584.Controllers
         /// Represents a method that will take the restaurant response and send it to the Restaurant Thanks view.
         /// </summary>
         /// <param name="restaurantResponse">Represents the restaurant response received.</param>
+        /// <param name="request">Represents a special request that the user has made.</param>
         /// <returns>Represents the action result that will either stay on the home view or transfer the model to the Restaurant Thanks view.</returns>
         [HttpPost]
-        public ActionResult Index(RestaurantResponse restaurantResponse)
+        public ActionResult Index(RestaurantResponse restaurantResponse, string request)
         {
             // Check to see if the restaurant information is valid.
             if (ModelState.IsValid)
             {
+                // Check to see if any special request was made.
+                if (request == "")
+                {
+                    // No request was made, so set the text as none.
+                    request = "None";
+                }
                 // If the information is valid, send the resonse to the Restaurant Thanks view.
-                return View("RestaurantThanks", restaurantResponse);
+                return View("RestaurantThanks", new Tuple<RestaurantResponse, string> (restaurantResponse, request));
             }
             else
             {
