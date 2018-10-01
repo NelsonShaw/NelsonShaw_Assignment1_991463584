@@ -1,44 +1,69 @@
-﻿@model NelsonShaw_Assignment1_991463584.Models.RestaurantResponse
+﻿<!--Import the restaurant response model for the view.-->
+@model NelsonShaw_Assignment1_991463584.Models.RestaurantResponse
 
+<!--Set a default layout.-->
 @{
     Layout = null;
 }
 
+<!--Set the document type.-->
 <!DOCTYPE html>
 
+<!--Represents the html section. -->
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <title>Thanks</title>
-    <style>
-        .btn a {
-            color: white;
-            text-decoration: none
-        }
+    <!--Represents the head of the page.-->
+    <head>
+        <!--Set the viewport of the page.-->
+        <meta name="viewport" content="width=device-width" />
 
-        body {
-            background-color: lightsalmon;
-        }
-    </style>
-</head>
-<body>
-    <div class="text-center">
-        <h2>Thanks for choosing @Model.RestaurantName</h2>
-        <h3>Now we simply need a bit more information from you:</h3>
-        <div class="container">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-warning">Your name</li>
-                <li class="list-group-item list-group-item-warning">Your email</li>
-                <li class="list-group-item list-group-item-warning">Your phone number</li>
-                <li class="list-group-item list-group-item-warning">How many of your friends you are bringing</li>
-                <li class="list-group-item list-group-item-warning">If you are coming or not</li>
-            </ul>
+        <!--Import bootstrap.-->
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+        <!--Set the title.-->
+        <title>Thanks</title>
+
+        <!--Set the CSS stylings.-->
+        <style>
+            /*Represents a button link inside the button.*/
+            .btn a {
+                color: white; /*Set the color to white.*/
+                text-decoration: none; /*Do not add any decorations to make the button look like a link.*/
+            }
+
+            /*Represents the main body.*/
+            body {
+                background-color: lightsalmon; /*Set the background of the page to a light salmon color.*/
+            }
+        </style>
+    </head>
+
+    <!--Represents the main body of the page.-->
+    <body>
+        <!--Represents a container to center the text.-->
+        <div class="text-center">
+            <!--Access the restaurant name.-->
+            <h2>Thanks for choosing @Model.Name</h2>
+            <h3>Now we simply need a bit more information from you:</h3>
+
+            <!--Represents a container for a list.-->
+            <div class="container">
+                <!--Represents the list of required items.-->
+                <ul class="list-group">
+                    <!--Each list item represents the required information to be listed by the guest.-->
+                    <li class="list-group-item list-group-item-warning">Your name</li>
+                    <li class="list-group-item list-group-item-warning">Your email</li>
+                    <li class="list-group-item list-group-item-warning">Your phone number</li>
+                    <li class="list-group-item list-group-item-warning">How many of your friends you are bringing</li>
+                    <li class="list-group-item list-group-item-warning">If you are coming or not</li>
+                </ul>
+            </div>
+
+            <!--Represents a button to go to the next page.-->
+            <div class="btn btn-warning">
+                <!--Go to the next page.-->
+                @Html.ActionLink("RSVP Now", "RsvpForm")
+            </div>
         </div>
-        <div class="btn btn-warning">
-            @Html.ActionLink("RSVP Now", "RsvpForm")
-        </div>
-    </div>
-</body>
+    </body>
 </html>

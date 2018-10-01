@@ -1,56 +1,87 @@
-﻿@model NelsonShaw_Assignment1_991463584.Models.GuestResponse
+﻿<!--Import the guest response model for the view.-->
+@model NelsonShaw_Assignment1_991463584.Models.GuestResponse
 
+<!--Set a default layout.-->
 @{
     Layout = null;
 }
 
+<!--Set the document type.-->
 <!DOCTYPE html>
 
+<!--Represents the html section. -->
 <html>
-<head>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/Styles.css" rel="stylesheet" />
-    <title>Rsvp Now</title>
-</head>
-<body>
-    <div class="panel panel-warning">
-        <div class="panel-heading text-center"><h4>Restaurant Reservation</h4></div>
-        <div class="panel-body">
-            @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary()
-        <div class="form-group">
-            <label>Your name:</label>
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <!--Represents the head of the page.-->
+    <head>
+        <!--Set the viewport of the page.-->
+        <meta name="viewport" content="width=device-width" />
+
+        <!--Import Bootstrap.-->
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+        <!--Import the styles.-->
+        <link href="~/Content/Styles.css" rel="stylesheet" />
+
+        <!--Set the title.-->
+        <title>Rsvp Now</title>
+    </head>
+
+    <!--Represents the main body of the page.-->
+    <body>
+        <!--Represents an orange panel with a header and body.-->
+        <div class="panel panel-warning">
+            <!--Represents the panel header.-->
+            <div class="panel-heading text-center"><h4>Restaurant Reservation</h4></div>
+            <!--Represents the panel body.-->
+            <div class="panel-body">
+                <!--Create an helper method to send back to the action method.-->
+                @using (Html.BeginForm())
+                {
+                    <!--Use a helper method to check guest input validation.-->
+                    @Html.ValidationSummary()
+
+                    <!--Represents a textbox for the name.-->
+                    <div class="form-group">
+                        <label>Your name:</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    </div>
+
+                    <!--Represents a textbox for the email.-->
+                    <div class="form-group">
+                        <label>Your email:</label>
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                    </div>
+
+                    <!--Represents a textbox for the phone number.-->
+                    <div class="form-group">
+                        <label>Your phone:</label>
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                    </div>
+
+                    <!--Represents a textbox for the number of friends.-->
+                    <div class="form-group">
+                        <label>How many of your friends are coming (not including you):</label>
+                        @Html.TextBoxFor(x => x.NumberOfFriends, new { @class = "form-control" })
+                    </div>
+
+                    <!--Represents a dropdown list to look for whether the guest will attend or not.-->
+                    <div class="form-group">
+                        <label>Will you attend?</label>
+                        @Html.DropDownListFor(x => x.WillAttend, new[] {
+                                    new SelectListItem() {Text = "Yes, I'll be there",
+                                        Value = bool.TrueString},
+                                    new SelectListItem() {Text = "No, I can't come",
+                                        Value = bool.FalseString}
+                                }, "Choose an option", new { @class = "form-control" })
+                    </div>
+                    
+                    <!--Represents a submit button to submit the form information.-->
+                    <div class="text-center">
+                        <input class="btn btn-success" type="submit" value="Submit RSVP" />
+                    </div>
+                }
+            </div>
         </div>
-        <div class="form-group">
-            <label>Your email:</label>
-            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label>Your phone:</label>
-            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label>How many of your friends are coming (not including you):</label>
-            @Html.TextBoxFor(x => x.NumberOfFriends, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label>Will you attend?</label>
-            @Html.DropDownListFor(x => x.WillAttend, new[] {
-                    new SelectListItem() {Text = "Yes, I'll be there",
-                        Value = bool.TrueString},
-                    new SelectListItem() {Text = "No, I can't come",
-                        Value = bool.FalseString}
-                }, "Choose an option", new { @class = "form-control" })
-        </div>
-        <div class="text-center">
-            <input class="btn btn-success" type="submit" value="Submit RSVP" />
-        </div>
-        }
-        </div>
-    </div>
-</body>
+    </body>
 </html>

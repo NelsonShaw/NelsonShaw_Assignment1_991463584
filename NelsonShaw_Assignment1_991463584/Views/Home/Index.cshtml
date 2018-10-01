@@ -1,60 +1,89 @@
-﻿@model NelsonShaw_Assignment1_991463584.Models.RestaurantResponse
+﻿<!--Import the restaurant response model for the view.-->
+@model NelsonShaw_Assignment1_991463584.Models.RestaurantResponse
+
+<!--Set a default layout.-->
 @{
     Layout = null;
 }
 
+<!--Set the document type.-->
 <!DOCTYPE html>
 
+<!--Represents the html section. -->
 <html>
-<head>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/Styles.css" rel="stylesheet" />
-    <title>Home</title>
-    <style>
-        .btn a {
-            color: white;
-            text-decoration: none
-        }
+    <!--Represents the head of the page.-->
+    <head>
+        <!--Set the viewport of the page.-->
+        <meta name="viewport" content="width=device-width" />
 
-        body {
-            background-color: lightgreen;
-        }
+        <!--Import Bootstrap.-->
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
 
-        h1, h3 {
-            color: green;
-        }
-    </style>
-</head>
-<body>
-    <div class="container text-center">
-        <h1>Restaurant Party Reservations</h1>
-        <h3>Your invited! Come and bring some friends!</h3>
-    </div>
+        <!--Import the styles.-->
+        <link href="~/Content/Styles.css" rel="stylesheet" />
+
+        <!--Set the title.-->
+        <title>Home</title>
+
+        <!--Set the CSS stylings.-->
+        <style>
+            /*Represents a button link inside the button.*/
+            .btn a {
+                color: white; /*Set the color to white.*/
+                text-decoration: none; /*Do not add any decorations to make the button look like a link.*/
+            }
+
+            /*Represents the main body.*/
+            body {
+                background-color: lightgreen; /*Set the background of the view to light green.*/
+            }
+
+            /*Represents a large and small header.*/
+            h1, h3 {
+                color: green; /*Set the color of the headers to green.*/
+            }
+        </style>
+    </head>
+
+    <!--Represents the main body of the page.-->
+    <body>
+        <!--Represents a container that will center the text.-->
+        <div class="container text-center">
+            <!--The title of the page.-->
+            <h1>Restaurant Party Reservations</h1>
+            <h3>Your invited! Come and bring some friends!</h3>
+        </div>
+
+        <!--Represents a container to center the html form.-->
         <div class="container">
+            <!--Create an helper method to send back to the action method.-->
             @using (Html.BeginForm())
             {
+                <!--Use the helper method to check input validation.-->
                 @Html.ValidationSummary()
+
+                <!--Create a dropdown list for each restaurant name.-->
                 <div class="form-group">
                     <label>Restaurant:</label>
-                    @Html.DropDownListFor(x => x.RestaurantName, new[] {
-                                            new SelectListItem() {Text = "Harveys",
-                                                Value = "Harveys"},
-                                            new SelectListItem() {Text = "Montanas",
-                                                Value = "Montanas"},
-                                            new SelectListItem() {Text = "The Keg",
-                                                Value = "The Keg"},
-                                            new SelectListItem() {Text = "East Side Marios",
-                                                Value = "East Side Marios"},
-                                            new SelectListItem() {Text = "Swiss Chalet",
-                                                Value = "Swiss Chalet"}
-                                        }, "Choose a restaurant", new { @class = "form-control" })
+                    @Html.DropDownListFor(x => x.Name, new[] {
+                                        new SelectListItem() {Text = "Harveys",
+                                            Value = "Harveys"},
+                                        new SelectListItem() {Text = "Montanas",
+                                            Value = "Montanas"},
+                                        new SelectListItem() {Text = "The Keg",
+                                            Value = "The Keg"},
+                                        new SelectListItem() {Text = "East Side Marios",
+                                            Value = "East Side Marios"},
+                                        new SelectListItem() {Text = "Swiss Chalet",
+                                            Value = "Swiss Chalet"}
+                                    }, "Choose a restaurant", new { @class = "form-control" })
                 </div>
+                <!--Represents a button to submit the form information.-->
                 <div class="text-center">
                     <input class="btn btn-success" type="submit" value="Go" />
                 </div>
             }
         </div>
-</body>
+    </body>
 </html>
