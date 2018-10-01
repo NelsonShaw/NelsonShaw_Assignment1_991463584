@@ -50,6 +50,7 @@ namespace NelsonShaw_Assignment1_991463584.Controllers
                     // No request was made, so set the text as none.
                     request = "None";
                 }
+
                 // If the information is valid, send the resonse to the Restaurant Thanks view.
                 return View("RestaurantThanks", new Tuple<RestaurantResponse, string> (restaurantResponse, request));
             }

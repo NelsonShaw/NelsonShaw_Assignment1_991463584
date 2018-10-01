@@ -10,50 +10,50 @@
 
 <!--Represents the html section. -->
 <html>
-<!--Represents the head of the page.-->
-<head>
-    <!--Set the viewport of the page.-->
-    <meta name="viewport" content="width=device-width" />
+    <!--Represents the head of the page.-->
+    <head>
+        <!--Set the viewport of the page.-->
+        <meta name="viewport" content="width=device-width" />
 
-    <!--Import bootstrap.-->
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+        <!--Import bootstrap.-->
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
 
-    <!--Set the title.-->
-    <title>Thanks</title>
+        <!--Set the title.-->
+        <title>Thanks</title>
 
-    <!--Set the CSS stylings.-->
-    <style>
-        /*Represents the body of the page.*/
-        body {
-            background-color: lightgreen; /*Set the background of the page to light green.*/
-        }
-
-        /*Represents the header and the lead class container.*/
-        h1, .lead {
-            color: green; /*Set the color of the header and container to green.*/
-        }
-    </style>
-</head>
-
-<!--Represents the main body of the page.-->
-<body>
-    <!--Represents a container for the title and lead.-->
-    <div class="text-center">
-        <!--Represents the top header.-->
-        <h1>Thank you, @Model.Name!</h1>
-
-        <!--Represents the lead message. If the guest can attend, then the first message will be displayed. Otherwise, if they cannot come, then the second message is displayed.-->
-        <div class="lead">
-            @if (Model.WillAttend == true)
-            {
-                @:Your restaurant reservation is made. We will gladly deliver your meal once you make it.
+        <!--Set the CSS stylings.-->
+        <style>
+            /*Represents the body of the page.*/
+            body {
+                background-color: lightgreen; /*Set the background of the page to light green.*/
             }
-            else
-            {
-                @:Sorry to hear that you can't make it, but thanks for letting us know.
+
+            /*Represents the header and the lead class container.*/
+            h1, .lead {
+                color: green; /*Set the color of the header and container to green.*/
             }
+        </style>
+    </head>
+
+    <!--Represents the main body of the page.-->
+    <body>
+        <!--Represents a container for the title and lead.-->
+        <div class="text-center">
+            <!--Represents the top header.-->
+            <h1>Thank you, @Model.Name!</h1>
+
+            <!--Represents the lead message. If the guest can attend, then the first message will be displayed. Otherwise, if they cannot come, then the second message is displayed.-->
+            <div class="lead">
+                @if (Model.WillAttend == true)
+                {
+                    @:Your restaurant reservation is made. We will gladly deliver your meal once you make it.
+                }
+                else
+                {
+                    @:Sorry to hear that you can't make it, but thanks for letting us know.
+                }
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
